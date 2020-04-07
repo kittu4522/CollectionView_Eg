@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource
 {
-    var seatNos:[Int] = [] // [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40] Coming from user defaults like this
+    var seatNos:[Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]
     var lSeatNos:[Int] = [1,5,9,13,17,21,25,29,33,37,2,6,10,14,18,22,26,30,34,38]
     var rSeatNos:[Int] = [3,7,11,15,19,23,27,31,35,39,4,8,12,16,20,24,28,32,36,40]
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     {
         super.viewDidLoad()
         
-        seatNos = UserDefaults.standard.object(forKey: "seatNos")as! [Int]
+        
         
         if (UserDefaults.standard.object(forKey: "bookedSeats") != nil)
         {
@@ -43,7 +43,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 50, height: 70)
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
         
         
         busCV = UICollectionView(frame: CGRect(x: 50, y: 25, width: 314, height: 650), collectionViewLayout: layout)
@@ -86,6 +86,9 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         }
         return 0
     }
+    
+    
+    
     
     //cellForItemAt indexPath
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
